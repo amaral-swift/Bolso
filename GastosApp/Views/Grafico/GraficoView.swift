@@ -13,52 +13,37 @@ struct GraficoView: View {
     @Query(sort: \Categoria.nome, order: .reverse) private var categorias: [Categoria]
     @Query(sort: \Transacao.valor, order: .forward) private var transacoes: [Transacao]
     
-    @State private var mesSelecionado: Date = .now
-    
-    var transacoesPorMes: [Transacao] {
-        transacoes.filter { transacao in
-            Calendar.current.isDate(transacao.data, equalTo: mesSelecionado, toGranularity: .month)
-        }
+    @State private var viewModel = GraficoViewModel()
+
+    private var gastosPorCategoria: [(categoria: Categoria, total: Double)] {
+        viewModel.gastosPorCategoria(transacoes)
     }
-    
-    var gastosPorCategoria: [(categoria: Categoria, total: Double)] {
-        var totais: [Categoria: Double] = [:]
-        
-        for transacao in transacoesPorMes where transacao.tipo == .gasto {
-            if let categoria = transacao.categoria {
-                totais[categoria, default: 0.0] += transacao.valor
-            }
-        }
-        
-        return totais.map { (categoria: $0.key, total: $0.value) }
-            .sorted { $0.total > $1.total }
-    }
-    
+
     private var categoriaComMaiorGasto: (categoria: Categoria, total: Double)? {
         gastosPorCategoria.first
     }
-    
+
     private var valorTotalGasto: Double {
-        calcularValorTotal(transacoes: transacoesPorMes)
+        viewModel.saldoDoMes(transacoes)
     }
     
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    Button(action: { mudarMes(por: -1) }) {
+                    Button(action: { viewModel.mudarMes(por: -1) }) {
                         Image(systemName: "chevron.left")
                             .padding()
                     }
                     
                     Spacer()
                     
-                    Text(mesSelecionado.formatted(.dateTime.month(.wide).year()))
+                    Text(viewModel.mesSelecionado.formatted(.dateTime.month(.wide).year()))
                         .font(.title2.bold())
                     
                     Spacer()
                     
-                    Button(action: { mudarMes(por: 1) }) {
+                    Button(action: { viewModel.mudarMes(por: 1) }) {
                         Image(systemName: "chevron.right")
                             .padding()
                     }
@@ -104,7 +89,7 @@ struct GraficoView: View {
                     }
                     
                 }
-                .animation(.snappy(duration: 0.5), value: mesSelecionado)
+                .animation(.snappy(duration: 0.5), value: viewModel.mesSelecionado)
                 .chartLegend(spacing: 20)
                 .frame(maxHeight: .infinity)
                 .padding()
@@ -133,12 +118,6 @@ struct GraficoView: View {
             }
             .padding(UIDevice.current.userInterfaceIdiom == .pad ? 60 : 0)
             .navigationTitle("Gráfico")
-        }
-    }
-    
-    private func mudarMes(por valor: Int) {
-        if let novaData = Calendar.current.date(byAdding: .month, value: valor, to: mesSelecionado) {
-            mesSelecionado = novaData
         }
     }
 }

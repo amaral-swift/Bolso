@@ -8,11 +8,6 @@
 import SwiftUI
 import SwiftData
 
-enum tipoDeTransacao: String, Codable, CaseIterable {
-    case gasto = "Gasto"
-    case receita = "Receita"
-}
-
 struct AdicionarTransacaoView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
@@ -79,7 +74,6 @@ struct AdicionarTransacaoView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Salvar") {
                         let novaTransacao = Transacao(titulo: tituloTransacao, valor: valorConvertido, descricao: descricaoDaTransacao, data: dataDaTransacao, tipo: tipoDaTransacao, categoria: categoriaDaTransacao)
-                        novaTransacao.categoria?.valorTotal += novaTransacao.valor
                         
                         context.insert(novaTransacao)
                         dismiss()
