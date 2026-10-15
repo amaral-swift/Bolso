@@ -6,11 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		38039D873081452700403C02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3879271F2F45F99900993484 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 387927262F45F99900993484;
+			remoteInfo = GastosApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		38039D833081452700403C02 /* BolsoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BolsoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		387927272F45F99900993484 /* GastosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GastosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		38039D843081452700403C02 /* BolsoTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BolsoTests;
+			sourceTree = "<group>";
+		};
 		387927292F45F99900993484 /* GastosApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GastosApp;
@@ -19,6 +35,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		38039D803081452700403C02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		387927242F45F99900993484 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				387927292F45F99900993484 /* GastosApp */,
+				38039D843081452700403C02 /* BolsoTests */,
 				387927282F45F99900993484 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				387927272F45F99900993484 /* GastosApp.app */,
+				38039D833081452700403C02 /* BolsoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +73,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		38039D823081452700403C02 /* BolsoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38039D8B3081452700403C02 /* Build configuration list for PBXNativeTarget "BolsoTests" */;
+			buildPhases = (
+				38039D7F3081452700403C02 /* Sources */,
+				38039D803081452700403C02 /* Frameworks */,
+				38039D813081452700403C02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38039D883081452700403C02 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				38039D843081452700403C02 /* BolsoTests */,
+			);
+			name = BolsoTests;
+			packageProductDependencies = (
+			);
+			productName = BolsoTests;
+			productReference = 38039D833081452700403C02 /* BolsoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		387927262F45F99900993484 /* GastosApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 387927322F45F99A00993484 /* Build configuration list for PBXNativeTarget "GastosApp" */;
@@ -77,9 +125,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
+				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
+					38039D823081452700403C02 = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 387927262F45F99900993484;
+					};
 					387927262F45F99900993484 = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
@@ -100,11 +152,19 @@
 			projectRoot = "";
 			targets = (
 				387927262F45F99900993484 /* GastosApp */,
+				38039D823081452700403C02 /* BolsoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38039D813081452700403C02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		387927252F45F99900993484 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +175,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		38039D7F3081452700403C02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		387927232F45F99900993484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +191,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		38039D883081452700403C02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 387927262F45F99900993484 /* GastosApp */;
+			targetProxy = 38039D873081452700403C02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		38039D893081452700403C02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7N9YG996K2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amaral-swift.BolsoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GastosApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GastosApp";
+			};
+			name = Debug;
+		};
+		38039D8A3081452700403C02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7N9YG996K2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amaral-swift.BolsoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GastosApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GastosApp";
+			};
+			name = Release;
+		};
 		387927302F45F99A00993484 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -325,6 +444,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		38039D8B3081452700403C02 /* Build configuration list for PBXNativeTarget "BolsoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38039D893081452700403C02 /* Debug */,
+				38039D8A3081452700403C02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		387927222F45F99900993484 /* Build configuration list for PBXProject "GastosApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
