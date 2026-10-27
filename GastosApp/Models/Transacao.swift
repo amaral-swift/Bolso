@@ -11,14 +11,14 @@ import Foundation
 @Model
 class Transacao {
     var titulo: String
-    var valor: Double
+    var valor: Decimal
     var data: Date
     var tipo: tipoDeTransacao
     var descricao: String?
 
     var categoria: Categoria?
 
-    init(titulo: String, valor: Double, descricao: String?, data: Date = .now, tipo: tipoDeTransacao = .gasto, categoria: Categoria? = nil) {
+    init(titulo: String, valor: Decimal, descricao: String?, data: Date = .now, tipo: tipoDeTransacao = .gasto, categoria: Categoria? = nil) {
         self.titulo = titulo
         self.valor = valor
         self.descricao = descricao

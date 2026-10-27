@@ -7,9 +7,13 @@
 
 import Foundation
 
-func formatar(_ valor: Double) -> String {
+private let formatadorMoeda: NumberFormatter = {
     let formatter = NumberFormatter()
     formatter.numberStyle = .currency
     formatter.locale = Locale(identifier: "pt_BR")
-    return formatter.string(from: NSNumber(value: valor)) ?? ""
+    return formatter
+}()
+
+func formatar(_ valor: Decimal) -> String {
+    formatadorMoeda.string(from: NSDecimalNumber(decimal: valor)) ?? ""
 }

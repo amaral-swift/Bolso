@@ -7,8 +7,8 @@
 
 import Foundation
 
-func calcularValorTotal(transacoes: [Transacao]) -> Double{
-    var valorTotal: Double = 0.0
+func calcularValorTotal(transacoes: [Transacao]) -> Decimal {
+    var valorTotal: Decimal = 0.0
 
     for transacao in transacoes {
         if transacao.tipo == .receita {

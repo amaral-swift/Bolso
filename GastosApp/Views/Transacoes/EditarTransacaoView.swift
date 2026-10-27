@@ -22,9 +22,9 @@ struct EditarTransacaoView: View {
     @State private var categoriaDaTransacao: Categoria?
     @State private var descricaoDaTransacao: String = ""
     
-    private var valorConvertido: Double {
+    private var valorConvertido: Decimal {
         let numeros = valorTransacao.filter { $0.isNumber }
-        let numero = Double(numeros) ?? 0
+        let numero = Decimal(string: numeros) ?? 0
         return numero / 100
     }
     
@@ -35,7 +35,7 @@ struct EditarTransacaoView: View {
                     .keyboardType(.numberPad)
                     .onChange(of: valorTransacao) { valor, novoValor in
                         let numeros = novoValor.filter { $0.isNumber }
-                        let numero = Double(numeros) ?? 0
+                        let numero = Decimal(string: numeros) ?? 0
                         let valorFinal = numero / 100
                         valorTransacao = formatar(valorFinal)
                     }

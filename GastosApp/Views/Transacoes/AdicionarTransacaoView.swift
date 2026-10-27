@@ -21,9 +21,9 @@ struct AdicionarTransacaoView: View {
     @State private var descricaoDaTransacao: String = ""
     @State private var feedback: Bool = false
     
-    private var valorConvertido: Double {
+    private var valorConvertido: Decimal {
         let numeros = valorTransacao.filter { $0.isNumber }
-        let numero = Double(numeros) ?? 0
+        let numero = Decimal(string: numeros) ?? 0
         return numero / 100
     }
     
@@ -38,7 +38,7 @@ struct AdicionarTransacaoView: View {
                         let numero = Double(numeros) ?? 0
                         let valorFinal = numero / 100
                         
-                        valorTransacao = formatar(valorFinal)
+                        valorTransacao = formatar(Decimal(valorFinal))
                     }
                 TextField("Título da transação", text: $tituloTransacao)
                 TextField("Descrição (opcional)", text: $descricaoDaTransacao)

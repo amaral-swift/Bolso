@@ -16,10 +16,17 @@ class Categoria {
     @Relationship(deleteRule: .nullify, inverse: \Transacao.categoria)
     var transacoes: [Transacao]? = []
 
-    var valorTotal: Double {
-        (transacoes ?? []).reduce(0) { total, transacao in
-            transacao.tipo == .receita ? total + transacao.valor : total - transacao.valor
+    var valorTotal: Decimal {
+        var total: Decimal = 0
+        for transacao in transacoes ?? [] {
+            let valor: Decimal = transacao.valor
+            if transacao.tipo == .receita {
+                total += valor
+            } else {
+                total -= valor
+            }
         }
+        return total
     }
 
     init(nome: String, hexCor: CorRGBA, valorTotal: Double) {

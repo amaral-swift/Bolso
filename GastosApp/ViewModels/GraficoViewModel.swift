@@ -16,8 +16,8 @@ class GraficoViewModel {
         }
     }
 
-    func gastosPorCategoria(_ transacoes: [Transacao]) -> [(categoria: Categoria, total: Double)] {
-        var totais: [Categoria: Double] = [:]
+    func gastosPorCategoria(_ transacoes: [Transacao]) -> [(categoria: Categoria, total: Decimal)] {
+        var totais: [Categoria: Decimal] = [:]
 
         for transacao in transacoesDoMes(transacoes) where transacao.tipo == .gasto {
             if let categoria = transacao.categoria {
@@ -29,7 +29,7 @@ class GraficoViewModel {
             .sorted { $0.total > $1.total }
     }
 
-    func saldoDoMes(_ transacoes: [Transacao]) -> Double {
+    func saldoDoMes(_ transacoes: [Transacao]) -> Decimal {
         calcularValorTotal(transacoes: transacoesDoMes(transacoes))
     }
 

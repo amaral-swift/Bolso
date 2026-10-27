@@ -15,15 +15,15 @@ struct GraficoView: View {
     
     @State private var viewModel = GraficoViewModel()
 
-    private var gastosPorCategoria: [(categoria: Categoria, total: Double)] {
+    private var gastosPorCategoria: [(categoria: Categoria, total: Decimal)] {
         viewModel.gastosPorCategoria(transacoes)
     }
 
-    private var categoriaComMaiorGasto: (categoria: Categoria, total: Double)? {
+    private var categoriaComMaiorGasto: (categoria: Categoria, total: Decimal)? {
         gastosPorCategoria.first
     }
 
-    private var valorTotalGasto: Double {
+    private var valorTotalGasto: Decimal {
         viewModel.saldoDoMes(transacoes)
     }
     
