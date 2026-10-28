@@ -22,12 +22,6 @@ struct EditarTransacaoView: View {
     @State private var categoriaDaTransacao: Categoria?
     @State private var descricaoDaTransacao: String = ""
     
-    private var valorConvertido: Decimal {
-        let numeros = valorTransacao.filter { $0.isNumber }
-        let numero = Decimal(string: numeros) ?? 0
-        return numero / 100
-    }
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -37,7 +31,7 @@ struct EditarTransacaoView: View {
                         let numeros = novoValor.filter { $0.isNumber }
                         let numero = Decimal(string: numeros) ?? 0
                         let valorFinal = numero / 100
-                        valorTransacao = formatar(valorFinal)
+                        valorTransacao = formatar(valorDeMascara(novoValor))
                     }
                 
                 TextField("Título", text: $tituloTransacao)
@@ -75,7 +69,7 @@ struct EditarTransacaoView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Salvar") {
                         transacao.titulo = tituloTransacao
-                        transacao.valor = valorConvertido
+                        transacao.valor = valorDeMascara(valorTransacao)
                         transacao.categoria = categoriaDaTransacao
                         transacao.tipo = tipoDaTransacao
                         transacao.descricao = descricaoDaTransacao

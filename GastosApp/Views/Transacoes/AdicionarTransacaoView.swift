@@ -21,12 +21,6 @@ struct AdicionarTransacaoView: View {
     @State private var descricaoDaTransacao: String = ""
     @State private var feedback: Bool = false
     
-    private var valorConvertido: Decimal {
-        let numeros = valorTransacao.filter { $0.isNumber }
-        let numero = Decimal(string: numeros) ?? 0
-        return numero / 100
-    }
-    
     var body: some View {
         NavigationStack {
             Form {
@@ -35,10 +29,10 @@ struct AdicionarTransacaoView: View {
                     .onChange(of: valorTransacao) { valor, novoValor in
                         let numeros = novoValor.filter { $0.isNumber }
                         
-                        let numero = Double(numeros) ?? 0
+                        let numero = Decimal(string: numeros) ?? 0
                         let valorFinal = numero / 100
                         
-                        valorTransacao = formatar(Decimal(valorFinal))
+                        valorTransacao = formatar(valorDeMascara(novoValor))
                     }
                 TextField("Título da transação", text: $tituloTransacao)
                 TextField("Descrição (opcional)", text: $descricaoDaTransacao)
@@ -73,7 +67,7 @@ struct AdicionarTransacaoView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Salvar") {
-                        let novaTransacao = Transacao(titulo: tituloTransacao, valor: valorConvertido, descricao: descricaoDaTransacao, data: dataDaTransacao, tipo: tipoDaTransacao, categoria: categoriaDaTransacao)
+                        let novaTransacao = Transacao(titulo: tituloTransacao, valor: valorDeMascara(valorTransacao), descricao: descricaoDaTransacao, data: dataDaTransacao, tipo: tipoDaTransacao, categoria: categoriaDaTransacao)
                         
                         context.insert(novaTransacao)
                         dismiss()
