@@ -25,6 +25,7 @@ extension CorRGBA {
     ]
 
     static func corParaCategoria(index: Int) -> CorRGBA {
-        return paletaPadraoApple[index % paletaPadraoApple.count]
+        let n = paletaPadraoApple.count
+        return paletaPadraoApple[((index % n) + n) % n]
     }
 }
