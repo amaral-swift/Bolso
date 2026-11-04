@@ -9,7 +9,6 @@ import Foundation
 
 func calcularValorTotal(transacoes: [Transacao]) -> Decimal {
     var valorTotal: Decimal = 0.0
-    let valorTotalSemPrimeiro = Array(transacoes.dropFirst())
 
     for transacao in transacoes {
         if transacao.tipo == .receita {
