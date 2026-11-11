@@ -44,8 +44,8 @@ struct GraficoViewModelTests {
         let viewModel = GraficoViewModel()
         viewModel.mesSelecionado = data(ano: 2026, mes: 3)
         
-        let alimentacao = Categoria(nome: "Alimentação", hexCor: Color.blue.toRGBA(), valorTotal: 0)
-        let lazer = Categoria(nome: "Lazer", hexCor: Color.yellow.toRGBA(), valorTotal: 0)
+        let alimentacao = Categoria(nome: "Alimentação", hexCor: Color.blue.toRGBA())
+        let lazer = Categoria(nome: "Lazer", hexCor: Color.yellow.toRGBA())
         context.insert(alimentacao)
         context.insert(lazer)
         

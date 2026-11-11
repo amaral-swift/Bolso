@@ -6,24 +6,6 @@
 //
 
 import SwiftData
-import Foundation
 
-@Model
-class Transacao {
-    var titulo: String
-    var valor: Decimal
-    var data: Date
-    var tipo: tipoDeTransacao
-    var descricao: String?
-
-    var categoria: Categoria?
-
-    init(titulo: String, valor: Decimal, descricao: String?, data: Date = .now, tipo: tipoDeTransacao = .gasto, categoria: Categoria? = nil) {
-        self.titulo = titulo
-        self.valor = valor
-        self.descricao = descricao
-        self.data = data
-        self.tipo = tipo
-        self.categoria = categoria
-    }
-}
+// O modelo vive em SchemaV3 (versão atual). Ao criar a V4, troque o destino aqui.
+typealias Transacao = SchemaV3.Transacao

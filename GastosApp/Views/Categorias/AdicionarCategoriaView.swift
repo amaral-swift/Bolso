@@ -27,7 +27,7 @@ struct AdicionarCategoriaView: View {
                     Button("Salvar") {
                         let rgba = extrairRGBA(da: hexColor)
                                             
-                        let novaCategoria = Categoria(nome: titulo, hexCor: rgba, valorTotal: 0.0)
+                        let novaCategoria = Categoria(nome: titulo, hexCor: rgba)
                         
                         context.insert(novaCategoria)
                         dismiss()
